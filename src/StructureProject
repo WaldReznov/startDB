@@ -1,0 +1,34 @@
+App
+
+  ErrorBoundry - Страница с ошибкой
+
+		SwapiServiceProvider - глобальный контекст с экземпляром SwapiService
+
+			<Header onServiceChange={this.onServiceChange}/> - Заголовок с эвентом который изменяет SwapiServices 
+
+			<PersonDetails itemId={11} /> - itemId - это Id человека
+
+			<PlanetDetails itemId={5} /> - itemId - это Id планеты
+
+			<StarshipDetails itemId={9} /> - itemId - это Id звёздного корабля
+
+			<PersonList /> - лист людей
+
+			<StarshipList /> - лист звёздных кораблей
+
+			<PlanetList /> - лист планет
+
+
+___________________________
+
+<PersonDetails itemId={11} />
+	const mapMethodsToProps = (swapiService) => {
+		return {
+			getData: swapiService.getPerson,
+			getImageUrl: swapiService.getPersonImage
+		}
+	};
+	
+	withSwapiService - враппер который принимает два параметра Wrapper и mapMethodsToProps и возвращает 
+	
+	<Wrapped {...props} {...serviceProps} /> - где serviceProps это наш объект с функциями
